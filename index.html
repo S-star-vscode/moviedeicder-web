@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Decider</title>
+    <link rel="icon" type="image/x-icon" href="cinema-icon.png">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Movie Decider</h1>
+        <form id="movie-form">
+            <label for="genre">Select Favorite Genre:</label>
+            <select id="genre" name="genre">
+                <option value="action">Action</option>
+                <option value="comedy">Comedy</option>
+                <option value="mystery">Mystery</option>
+                <option value="romcom">Rom Com</option>
+            </select>
+            
+            <label for="mood">Select Your Current Mood:</label>
+            
+            <select id="mood" name="mood">
+                <option value="joyful">Joyful</option>
+                <option value="sad">Sad</option>
+                <option value="energetic">Energetic</option>
+                <option value="calm">Calm</option>
+            </select>
+
+            <label for="color">Select Favorite Color:</label>
+            <select id="color" name="color">
+                <option value="red">Red</option>
+                <option value="blue">Blue</option>
+                <option value="yellow">Yellow</option>
+                <option value="green">Green</option>
+            </select>
+            
+            <button type="button" onclick="suggestMovie()">Suggest Movie</button>
+        </form>
+        <div id="suggestion" class="suggestion"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
