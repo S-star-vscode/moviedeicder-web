@@ -2,59 +2,110 @@
 function suggestMovie() {
     const genre = document.getElementById('genre').value;
     const mood = document.getElementById('mood').value;
-    const duration = parseInt(document.getElementById('color').value, 10);
+    const color = document.getElementById('color').value;
+    const movedictionary = {
+        "action": {
+            "joyful": {
+                "red": "Guardians of the Galaxy",
+                "blue": "Mad Max: Fury Road",
+                "green": "Spider-Man: Homecoming",
+                "yellow": "Jumanji: Welcome to the Jungle",
+            },
+            "sad": {
+                "red": "Logan",
+                "blue": "The Dark Knight",
+                "green": "Gladiator",
+                "yellow": "Hacksaw Ridge",
+            },
+            "energetic": {
+                "red": "John Wick",
+                "blue": "Die Hard",
+                "green": "Mission: Impossible - Fallout",
+                "yellow": "Kingsman: The Secret Service"
+            },
+            "calm": {
+                "red": "Inception",
+                "blue": "The Bourne Identity",
+                "green": "Drive",
+                "yellow": "A Quiet Place"
+            },
+        },
+        "comedy": {
+            "joyful": {
+                "red": "The Grand Budapest Hotel",
+                "blue": "Superbad",
+                "green": "Step Brothers",
+                "yellow": "Bridesmaids"
+            },
+            "sad": {
+                "red": "The Pursuit of Happyness",
+                "blue": "About Time",
+                "green": "The 40-Year-Old Virgin",
+                "yellow": "Eternal Sunshine of the Spotless Mind"
+            },
+            "energetic": {
+                "red": "Zombieland",
+                "blue": "Pitch Perfect",
+                "green": "21 Jump Street",
+                "yellow": "Tropic Thunder"
+            },
+        },
+        "mystery": {
+            "joyful": {
+                "red": "Knives Out",
+                "blue": "Clue",
+                "green": "The Nice Guys",
+                "yellow": "Sherlock Holmes"
+            },
+            "sad": {
+                "red": "The Sixth Sense",
+                "blue": "Gone Girl",
+                "green": "Prisoners",
+                "yellow": "Se7en"
+            },
+            "energetic": {
+                "red": "Memento",
+                "blue": "The Girl with the Dragon Tattoo",
+                "green": "Shutter Island",
+                "yellow": "Source Code"
+            },
+        },
+        "romcom": {
+            "joyful": {
+                "red": "Crazy, Stupid, Love",
+                "blue": "10 Things I Hate About You",
+                "green": "Notting Hill",
+                "yellow": "The Proposal"
+            },
+            "sad": {
+                "red": "500 Days of Summer",
+                "blue": "Silver Linings Playbook",
+                "green": "About Time",
+                "yellow": "The Notebook"
+            },
+            "energetic": {
+                "red": "Legally Blonde",
+                "blue": "Love Actually",
+                "green": "How to Lose a Guy in 10 Days",
+                "yellow": "Always Be My Maybe"
+            },
+        }
+    }
+    
     let suggestion = '';
 
-    if (genre === 'action') {
-        if (mood === 'joyful') {
-            suggestion = 'We suggest you watch "Mad Max: Fury Road".';
-        } else if (mood === 'calm') {
-            suggestion = 'We suggest you watch "Inception".';
-        }    else if (mood === 'sad') {
-            suggestion = 'We suggest you watch "The Notebook".';
-            else if (mood === 'energetic') {
-            suggestion = 'We suggest you watch "The Notebook".';
-        }
+    if (genre === '' && mood === '' && color === '') {
+        suggestion = 'Please select a genre, mood, and color.';
+    } else if (genre === '' && mood === '') {
+        suggestion = 'Please select a genre and mood.';
+    } else if (genre === '' && color === '') {
+        suggestion = 'Please select a genre and color.';
+    } else if (mood === '' && color === '') {
+        suggestion = 'Please select a mood and color.';
     }
-        }
-    } else if (genre === 'comedy') {
-        if (mood === 'joyful') {
-            suggestion = 'We suggest you watch "Supergirl".';
-        } else if (mood === 'calm') {
-            suggestion = 'We suggest you watch "The Grand Budapest Hotel".';
-            {
-            suggestion = 'We suggest you watch "The Notebook".';
-            else if (mood === 'energetic') {
-            suggestion = 'We suggest you watch "The Notebook".';
-        }
-         }
-        }
-    } else if (genre === 'mystery') {
-        if (mood === 'joful') {
-            suggestion = 'We suggest you watch "The Shawshank Redemption".';
-        } else if (mood === 'calm') {
-            suggestion = 'We suggest you watch "Forrest Gump".';
-            {
-            suggestion = 'We suggest you watch "The Notebook".';
-            else if (mood === 'energetic') {
-            suggestion = 'We suggest you watch "The Notebook".';
-        }
-    }
-}
-        } else if (genre === 'romcom') {
-        if (mood === 'joful') {
-            suggestion = 'We suggest you watch "The Shawshank Redemption".';
-        } else if (mood === 'calm') {
-            suggestion = 'We suggest you watch "Forrest Gump".';
-            {
-            suggestion = 'We suggest you watch "The Notebook".';
-            else if (mood === 'energetic') {
-            suggestion = 'We suggest you watch "The Notebook".';
-        }
-         }
-        }
-    } else {
-        suggestion = 'Sorry, we don\'t have suggestions for this genre.';
+    else 
+    {
+        suggestion = movedictionary[genre][mood][color];
     }
 
     document.getElementById('suggestion').textContent = suggestion;
